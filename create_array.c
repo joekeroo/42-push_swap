@@ -6,11 +6,24 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:57:26 by jhii              #+#    #+#             */
-/*   Updated: 2022/01/28 18:57:56 by jhii             ###   ########.fr       */
+/*   Updated: 2022/02/26 18:42:39 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_malloc_error(char **tab)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 // returns Error if duplicate number is found
 static	int	check_duplicate(t_array *array, int size)
@@ -28,7 +41,7 @@ static	int	check_duplicate(t_array *array, int size)
 		{
 			if (i != j && array->stack_a[j] == curr)
 			{
-				ft_putstr_fd("Error", 1);
+				ft_putstr_fd("Error\n", 1);
 				exit(1);
 			}
 			j++;
@@ -43,7 +56,7 @@ static	void	check_error(int size)
 {
 	if (size == 0)
 	{
-		ft_putstr_fd("Error", 1);
+		ft_putstr_fd("Error\n", 1);
 		exit(1);
 	}
 }
@@ -74,6 +87,7 @@ int	create_array(t_array *array, int argc, char **argv)
 {
 	int		i;
 	int		k;
+	int		j;
 	char	**temp;
 
 	i = 1;
@@ -85,12 +99,11 @@ int	create_array(t_array *array, int argc, char **argv)
 	{
 		if (check_mulnumber(argv[i]) > 0)
 		{
+			j = 0;
 			temp = ft_split(argv[i], ' ');
-			while (*temp)
-			{
-				array->stack_a[k++] = ft_atoi(*temp);
-				temp++;
-			}
+			while (temp[j])
+				array->stack_a[k++] = ft_atoi(temp[j++]);
+			ft_malloc_error(temp);
 			i++;
 		}
 		else if (check_number(argv[i]))

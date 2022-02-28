@@ -6,11 +6,24 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 15:25:18 by jhii              #+#    #+#             */
-/*   Updated: 2022/01/22 16:14:37 by jhii             ###   ########.fr       */
+/*   Updated: 2022/02/25 21:04:22 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	ft_malloc_error(char **tab)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 // 1 = whithin max and min intiger, 0 = not whithin max and min intiger
 static	int	check_minmax(char *str)
@@ -112,11 +125,12 @@ int	check_mulnumber(char *str)
 	{
 		if (check_minmax(result[i]) == 0)
 		{
-			free(result);
+			ft_malloc_error(result);
 			return (0);
 		}
 		len++;
 		i++;
 	}
+	ft_malloc_error(result);
 	return (len);
 }

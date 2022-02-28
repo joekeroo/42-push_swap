@@ -6,22 +6,11 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:00:45 by jhii              #+#    #+#             */
-/*   Updated: 2022/01/29 16:06:22 by jhii             ###   ########.fr       */
+/*   Updated: 2022/02/22 16:25:04 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static	void	sortasc(t_array *array)
-{
-	int	min;
-
-	min = getminmax(array->stack_a, array->size_a, 1);
-	if (min < array->size_a / 2)
-		rotate_multi(array, min, 1);
-	else if (min >= array->size_a / 2)
-		rotate_multi(array, array->size_a - min, 2);
-}
 
 static	int	find_after(t_array *array, int size)
 {

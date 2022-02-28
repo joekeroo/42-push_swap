@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:56:05 by jhii              #+#    #+#             */
-/*   Updated: 2022/01/28 19:22:37 by jhii             ###   ########.fr       */
+/*   Updated: 2022/02/25 21:40:38 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static	void	shift_up(int *array, int size)
 		array[i] = temp[i];
 		i++;
 	}
+	free(temp);
 	return ;
 }
 
