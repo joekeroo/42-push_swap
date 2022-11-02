@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:51:22 by jhii              #+#    #+#             */
-/*   Updated: 2022/11/02 13:34:41 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/02 15:31:05 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_array
 	int	rt_both;
 }	t_array;
 
+// mandatory functions
 void	swap_top(t_array *array, int type);
 void	rotate_up(t_array *array, int type);
 void	push_top(t_array *array, int type);
@@ -48,6 +49,7 @@ void	rotate_both(t_array *array, int amount, int type);
 void	sortasc(t_array *array);
 void	push_to_a(t_array *array);
 void	convert_numbers(t_array *array);
+void	checkempty(int argc, char **argv);
 void	rotate_over(t_array *array, int hold_a, int hold_b);
 void	addmoves(t_array *array, int *a, int *b, int type);
 int		create_array(t_array *array, int argc, char **argv);
@@ -60,5 +62,9 @@ int		find_asc(t_array *array);
 int		check_number(char *str);
 int		check_mulnumber(char *str);
 int		check_sorted(t_array *array);
+
+// bonus functions
+char	*get_next_line(int fd);
+void	input_sort_steps(t_array *array);
 
 #endif

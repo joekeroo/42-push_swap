@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:50:51 by jhii              #+#    #+#             */
-/*   Updated: 2022/02/24 22:00:23 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/02 15:13:37 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,23 @@ int	check_sorted(t_array *array)
 		}
 		i++;
 	}
-	if (res == 1)
+	if (res == 1 && array->size_b == 0)
 		return (1);
 	else
 		return (0);
+}
+
+void	checkempty(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (argv[i++][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit(1);
+		}
+	}
 }

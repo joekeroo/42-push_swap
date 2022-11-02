@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:51:03 by jhii              #+#    #+#             */
-/*   Updated: 2022/11/02 13:41:30 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/02 14:53:13 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static	void	checkempty(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (argv[i++][0] == '\0')
-		{
-			ft_putstr_fd("Error\n", 1);
-			exit(1);
-		}
-	}
-}
 
 /* check for leaks = system("leaks push_swap"); */
 int	main(int argc, char **argv)

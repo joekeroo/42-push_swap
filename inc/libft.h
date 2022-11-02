@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 23:09:39 by jhii              #+#    #+#             */
-/*   Updated: 2022/11/02 13:38:08 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/02 15:41:44 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ int		ft_isdigit(int n);
 int		ft_isprint(int c);
 int		ft_atoi(const char *str);
 int		ft_strlen(const char *str);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int		ft_strcmp(char *a, char *b);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *s1);
 char	**ft_split(const char *s, char c);
