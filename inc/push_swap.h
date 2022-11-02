@@ -6,17 +6,14 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:51:22 by jhii              #+#    #+#             */
-/*   Updated: 2022/02/26 18:04:55 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/02 13:34:41 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct s_array
 {

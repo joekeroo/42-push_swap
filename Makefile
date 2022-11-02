@@ -1,36 +1,45 @@
 NAME = push_swap
 
-CC = gcc
+GCC = gcc
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address --g3
+INCLUDES = -Iinc
+RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -I. #-g -fsanitize=address
-RM = rm -f
+SRC_PATH = src
+OBJ_PATH = obj
+LIB_PATH = libft
+ANNOYING = .vscode
 
-MAIN = push_swap.c
-SRCS = push.c r_rotate.c rotate.c swap.c sort_array.c \
-	   create_array.c check_number.c check_mulnumber.c \
-	   sortfor3.c sortfor5.c sort_utils_a.c sort_utils_b.c \
-	   opt_insertion_sort.c push_to_a.c convert_numbers.c \
-	   sort_utils_c.c
-OBJS = ${SRCS:.c=.o}
+MAIN = main.c
+SRC = push.c r_rotate.c rotate.c swap.c sort_array.c create_array.c \
+	  check_number.c check_mulnumber.c sortfor3.c sortfor5.c sort_utils_a.c \
+	  sort_utils_b.c opt_insertion_sort.c push_to_a.c convert_numbers.c \
+	  sort_utils_c.c
+OBJ = ${addprefix ${OBJ_PATH}/, ${SRC:.c=.o}}
 
-LIBFT_PATH = libft/
-LIBFT = libft/libft.a
+LIBFT = ${LIB_PATH}/libft.a
+LIBFT_DIR = -L${LIB_PATH} -lft
 
 all: ${NAME}
 
-${NAME}: ${OBJS} ${LIBFT}
-	${CC} ${CFLAGS} -o ${NAME} ${MAIN} ${OBJS} ${LIBFT}
+${NAME}: ${OBJ} ${LIBFT}
+	@${GCC} ${CFLAGS} ${INCLUDES} -o ${NAME} ${MAIN} ${OBJ} ${LIBFT_DIR}
 
 ${LIBFT}:
-	make re -C ${LIBFT_PATH}
+	@make re -C ${LIB_PATH}
+
+${OBJ_PATH}/%.o: ${SRC_PATH}/%.c
+	@mkdir -p ${@D}
+	@${GCC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 clean:
-	${RM} ${OBJS}
-	make clean -C ${LIBFT_PATH}
+	@${RM} ${ANNOYING}
+	@${RM} ${OBJ_PATH}
+	@make clean -C ${LIB_PATH}
 
 fclean: clean
-	${RM} ${NAME}
-	make fclean -C ${LIBFT_PATH}
+	@${RM} ${NAME}
+	@make fclean -C ${LIB_PATH}
 
 re: fclean all
 
