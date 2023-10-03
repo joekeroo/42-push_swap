@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jhii <jhii@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:50:51 by jhii              #+#    #+#             */
-/*   Updated: 2022/11/02 15:13:37 by jhii             ###   ########.fr       */
+/*   Updated: 2023/10/03 18:59:51 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	getindex_a(t_array *array, int index)
+int getindex_a(t_array *array, int index)
 {
-	int	i;
-	int	temp;
-	int	size;
+	int i;
+	int temp;
+	int size;
 
 	i = 0;
 	temp = -1;
@@ -38,15 +38,11 @@ int	getindex_a(t_array *array, int index)
 		return (temp);
 }
 
-int	getmoves(t_array *array, int index, int type)
+int getmoves(t_array *array, int index, int type)
 {
-	int	i;
-	int	size;
-	int	moves_a;
-	int	moves_b;
+	int moves_a;
+	int moves_b;
 
-	i = 0;
-	size = array->size_a;
 	if (index <= array->size_b / 2)
 		moves_b = index;
 	else
@@ -63,7 +59,7 @@ int	getmoves(t_array *array, int index, int type)
 		return (moves_a);
 }
 
-void	addmoves(t_array *array, int *a, int *b, int type)
+void addmoves(t_array *array, int *a, int *b, int type)
 {
 	if (type == 1)
 	{
@@ -79,11 +75,11 @@ void	addmoves(t_array *array, int *a, int *b, int type)
 	}
 }
 
-int	check_sorted(t_array *array)
+int check_sorted(t_array *array)
 {
-	int	i;
-	int	res;
-	int	size;
+	int i;
+	int res;
+	int size;
 
 	i = 0;
 	res = 1;
@@ -93,7 +89,7 @@ int	check_sorted(t_array *array)
 		if (i > 0 && array->stack_a[i] < array->stack_a[i - 1])
 		{
 			res = 0;
-			break ;
+			break;
 		}
 		i++;
 	}
@@ -103,9 +99,9 @@ int	check_sorted(t_array *array)
 		return (0);
 }
 
-void	checkempty(int argc, char **argv)
+void checkempty(int argc, char **argv)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while (i < argc)
