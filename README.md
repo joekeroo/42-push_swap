@@ -2,6 +2,8 @@
 
 In this project, we will be creating a program that sorts in ascending order numbers into `stack a`.
 
+![mypush_swap gif](https://github.com/joekeroo/42-push_swap/assets/58316168/c44130f3-6cbc-4b20-adea-c305c1ece936)
+
 ## About
 
 - There are only 2 stacks, `stack a` and `stack b`.
