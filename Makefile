@@ -51,6 +51,7 @@ ${OBJ_PATH}/%.o: ${B_SRC_PATH}/%.c
 	@${GCC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 clean:
+	@${RM} ${LIBFT}
 	@${RM} ${ANNOYING}
 	@${RM} ${OBJ_PATH}
 	@make clean -C ${LIB_PATH}
